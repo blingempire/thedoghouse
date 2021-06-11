@@ -25,7 +25,7 @@ SECRET_KEY = 'wl3)#&r&swpv_0ec($ot7h21zkgf2bul6tx5^zu8$jru6u3@9_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['cdprojectapp.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['cdprojectapp.herokuapp.com',"127.0.0.1:8000/",'127.0.0.1']
 
 
 # Application definition
