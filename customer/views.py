@@ -18,7 +18,7 @@ class About(View):
 
 class Order(View):
     def get(self, request, *args, **kwargs):
-        # get every item from each category
+        # get all item from category
         appetizers = MenuItem.objects.filter(
             category__name__contains='Appetizer')
         entres = MenuItem.objects.filter(category__name__contains='Entre')
@@ -26,7 +26,6 @@ class Order(View):
         drinks = MenuItem.objects.filter(category__name__contains='Drink')
         hotdogs = MenuItem.objects.filter(category__name__contains='Hotdog')
 
-        # pass into context
         context = {
             'appetizers': appetizers,
             'entres': entres,
@@ -35,7 +34,7 @@ class Order(View):
             'hotdogs': hotdogs,
         }
 
-        # render the template
+        # render template
         return render(request, 'customer/order.html', context)
 
     def post(self, request, *args, **kwargs):
@@ -80,7 +79,6 @@ class Order(View):
         )
         order.items.add(*item_ids)
 
-        # After everything is done, send confirmation email to the user
         body = ('Thank you for your order! Your food is being made and will be delivered soon!\n'
                 f'Your total: {price}\n'
                 'Thank you again for your order!')
